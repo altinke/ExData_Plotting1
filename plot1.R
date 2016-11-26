@@ -12,7 +12,6 @@ power_feb <- power_consumption[(power_consumption$Date=="1/2/2007" | power_consu
 
 # Plot the histogram to a PNG file
 png("plot1.png", width = 480, height = 480, units = "px")
-hist(power_feb$Global_active_power,xlab="Global Active Power (kilowatts)", main="Global Active Power",c="red")
 hist(power_feb$Global_active_power, xlab="Global Active Power (kilowatts)", main="Global Active Power", c="red")
 dev.off()
 # Don't forget to close the device
