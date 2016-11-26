@@ -17,7 +17,14 @@ dateTime <- paste(power_feb$Date, power_feb$Time)
 power_feb$DateTime <- as.POSIXct(dateTime)
 
 # Plot the graph to a PNG file
-png("plot2.png", width = 480, height = 480, units = "px")
-plot(power_feb$Global_active_power~power_feb$DateTime, type="l", ylab="Global Active Power (kilowatts)", xlab="")
-dev.off()
+png("plot3.png", width = 480, height = 480, units = "px")
+with(power_feb, { plot(Sub_metering_1 ~ DateTime, type = "l", ylab = "Energy sub metering",
+                     xlab = "", cex = 0.8)
+  lines(Sub_metering_2 ~ DateTime, col = "red")
+  lines(Sub_metering_3 ~ DateTime, col = "blue")
+})
+legend("topright", col = c("black", "red", "blue"), lwd = 1, lty = 1, 
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       cex = 0.8)
 # Don't forget to close the device
+dev.off()
